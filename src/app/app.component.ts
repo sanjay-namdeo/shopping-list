@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  selectedMenu: string = 'recipe';
+  selectedMenu = 'recipe';
 
   onMenuChange(selectedMenu: string) {
     this.selectedMenu = selectedMenu;
