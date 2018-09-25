@@ -5,10 +5,4 @@ import { Component, Output, EventEmitter } from '@angular/core';
   templateUrl: './header.component.html'
 })
 export class HeaderComponent {
-  @Output() onMenuChangeHandler = new EventEmitter<string>();
-
-  onMenuClicked(selectedMenu: string) {
-    this.onMenuChangeHandler.emit(selectedMenu);
-  }
-
 }
