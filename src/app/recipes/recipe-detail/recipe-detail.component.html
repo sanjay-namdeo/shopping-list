@@ -37,7 +37,7 @@
 
 <!-- Section to show Ingredients list -->
 <div class="row">
-  <div class="col-xs-12">
-    Ingredients
+  <div class="col-xs-12" *ngFor="let ingrdient of recipe.ingredients">
+    {{ingrdient.name}} - {{ingrdient.amount}}
   </div>
 </div>
