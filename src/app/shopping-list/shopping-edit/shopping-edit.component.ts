@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { Ingredient } from '../../shared/ingredient.model';
 import { ShoppingService } from '../shoppint.service';
 
@@ -7,7 +7,7 @@ import { ShoppingService } from '../shoppint.service';
   templateUrl: './shopping-edit.component.html',
   styleUrls: ['./shopping-edit.component.css']
 })
-export class ShoppingEditComponent implements OnInit {
+export class ShoppingEditComponent implements OnInit, OnDestroy {
   @ViewChild('nameInput') nameInputRef: ElementRef;
   @ViewChild('amountInput') amountInputRef: ElementRef;
 
@@ -22,6 +22,11 @@ export class ShoppingEditComponent implements OnInit {
 
     const newIngredient = new Ingredient(name, amount);
 
-    this.shoppingService.addIngredientAction.emit(newIngredient);
+    this.shoppingService.addIngredient(newIngredient);
+  }
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
   }
 }
