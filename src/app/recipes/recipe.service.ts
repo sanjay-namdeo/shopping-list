@@ -1,7 +1,9 @@
 import { Recipe } from './recipe.model';
 import { Ingredient } from '../shared/ingredient.model';
+import { Subject } from 'rxjs';
 
 export class RecipeService {
+    recipeChanged = new Subject<Recipe[]>();
     recipes: Recipe[] = [
         new Recipe('A Test Recipe', 'Delicious one',
             'https://upload.wikimedia.org/wikipedia/commons/a/a8/Chicken-kathi-roll-recipe.jpg',
@@ -17,5 +19,20 @@ export class RecipeService {
 
     getRecipes(id: number) {
         return this.recipes.slice()[id];
+    }
+
+    updateRecipe(index: number, recipe: Recipe) {
+        this.recipes[index] = recipe;
+        this.recipeChanged.next(this.recipes.slice());
+    }
+
+    addRecipe(recipe: Recipe) {
+        this.recipes.push(recipe);
+        this.recipeChanged.next(this.recipes.slice());
+    }
+
+    deleteRecipe(index: number) {
+        this.recipes.splice(index, 1);
+        this.recipeChanged.next(this.recipes.slice());
     }
 }
