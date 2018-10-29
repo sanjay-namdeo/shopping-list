@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { DataStorageService } from '../shared/data-storage.service';
 import { Response } from '@angular/http';
+import { ShoppingService } from '../shopping-list/shoppint.service';
 
 @Injectable()
 export class RecipeService {
@@ -17,7 +18,8 @@ export class RecipeService {
             [new Ingredient('Tomato', 3), new Ingredient('Potato', 2)])
     ];
 
-    constructor(private dataStorageService: DataStorageService) { }
+    constructor(private dataStorageService: DataStorageService,
+        private shoppingService: ShoppingService) { }
 
     getReceips() {
         return this.recipes.slice();
@@ -61,5 +63,9 @@ export class RecipeService {
             },
             (error: Error) => console.log(error)
         );
+    }
+
+    addToShoppingList(ingredients: Ingredient[]) {
+        this.shoppingService.addIngredients(ingredients);
     }
 }

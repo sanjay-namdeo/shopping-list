@@ -20,7 +20,7 @@
     <div class="btn-group" appDropDown>
       <button class="btn btn-primary dropdown-toggle">Manage Recipe<span class="caret"></span></button>
       <ul class="dropdown-menu">
-        <li><a>To Shopping List</a></li>
+        <li><a (click)="toShoppingList()">To Shopping List</a></li>
         <li><a (click)="onEditRecipe()">Edit Recipe</a></li>
         <li><a (click)=" onDeleteRecipe()">Delete Recipe</a></li>
       </ul>
