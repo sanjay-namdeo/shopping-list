@@ -1,5 +1,5 @@
 ## Shopping list application
-* Developed using [Angular](https://angular.io/) as frontend
+* Developed using [Angular](https://angular.io/) 6 as frontend
 * [Google Firebase](https://firebase.google.com/) as backend
 
 ### Get started
