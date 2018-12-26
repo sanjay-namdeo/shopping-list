@@ -1,4 +1,4 @@
-## A shopping list project developed
+## Shopping list application
 * Developed using [Angular](https://angular.io/) as frontend
 * [Google Firebase](https://firebase.google.com/) as backend
 
